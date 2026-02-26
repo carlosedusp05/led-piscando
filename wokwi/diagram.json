@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Carlos Eduardo Silva Pereira",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard-half",
+      "id": "bb1",
+      "top": -22.2,
+      "left": -122,
+      "attrs": { "color": "#eeefed" }
+    },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 220.8, "left": 52.84, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -13.2,
+      "left": 128.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 51.95,
+      "left": 230.4,
+      "attrs": { "value": "200" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "bb1:bp.22", "cyan", [ "v0" ] ],
+    [ "esp:23", "bb1:bn.23", "red", [ "h0" ] ],
+    [ "bb1:bp.21", "bb1:26t.d", "cyan", [ "v0" ] ],
+    [ "bb1:bn.24", "bb1:29t.e", "red", [ "v0" ] ],
+    [ "bb1:29t.d", "r1:1", "red", [ "v0" ] ],
+    [ "r1:2", "bb1:27t.b", "red", [ "v0" ] ],
+    [ "led1:A", "bb1:27t.a", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:26t.a", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
